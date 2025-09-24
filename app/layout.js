@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             Copyright &copy; 2025 <a href="https://ashk.au/">Ash Kyd</a> and
             contributors. Site design inspired by{" "}
             <a href="https://queerjs.com">queerjs.com</a>. Suggest{" "}
-            <a href="https://github.com/AshKyd/bne-lgbtq-tech-web">
+            <a href="https://github.com/bnelgbtq/bnelgbtq-website">
               changes on Github
             </a>
             .
