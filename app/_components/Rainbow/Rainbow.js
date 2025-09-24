@@ -34,11 +34,15 @@ export default function Rainbow() {
   if (!isMounted) {
     return null;
   }
+  console.log("stripes[0].colour", stripes[0].colour);
   return (
     <button
       className="rainbow"
       title={name}
       aria-live="assertive"
+      style={{
+        "--box-shadow": `0 0 5px ${stripes[0].colour}`,
+      }}
       onClick={() =>
         setStripeIndex(allStripes[stripeIndex + 1] ? stripeIndex + 1 : 0)
       }

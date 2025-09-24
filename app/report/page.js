@@ -6,6 +6,7 @@ export const metadata = {
 export default function () {
   return (
     <>
+      <h1>Report an issue</h1>
       <p>
         We want our events to be a safe and inclusive environment. That’s why we
         ask our attendees to follow our Code of Conduct!

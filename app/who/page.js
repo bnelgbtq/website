@@ -9,6 +9,7 @@ export const metadata = {
 export default function () {
   return (
     <>
+      <h1>Who are we?</h1>
       <p>
         This meetup has been running since 2017 and has been organised by a
         number of wonderful folks.

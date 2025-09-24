@@ -6,6 +6,7 @@ export const metadata = {
 export default function () {
   return (
     <>
+      <h1>Code of conduct</h1>
       <p>
         All attendees, speakers, sponsors and volunteers at our meetup are
         required to agree with the following code of conduct.

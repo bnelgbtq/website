@@ -4,7 +4,8 @@ import HeroItem from "./_components/HeroItem/HeroItem";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <h1>Brisbane LGBT+ in Tech</h1>
       <p>
         Brisbane LGBT & Allies in Tech is a meet-up for LGBT tech folks & allies
         thereof; to bring the community together and celebrate diversity in
@@ -30,6 +31,6 @@ export default function Home() {
         LGBTQIA+ or an ally, its definitely for you! Why not come along & find
         out? 🌈
       </p>
-    </div>
+    </>
   );
 }

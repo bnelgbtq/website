@@ -215,7 +215,7 @@ export const allStripes = [
   },
   {
     stripes: phillyStripes,
-    name: `Philly's pride flag`,
+    name: `Philly's pride`,
     wiki: "https://en.wikipedia.org/wiki/LGBT_symbols#cite_ref-Philadelphia_93-0",
   },
   {
