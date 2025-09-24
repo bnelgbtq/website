@@ -34,7 +34,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text: rgb(206, 200, 237);
-    --background: rgb(30, 17, 38);
+    --background: #1e1126;
     --background-secondary: #23272a;
     --border: #3c3c48;
     --box-shadow: 0 3px 10px #040424;

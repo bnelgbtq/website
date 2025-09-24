@@ -15,7 +15,7 @@
     text-decoration-skip-ink: auto;
     text-underline-offset: 3px;
   }
-  li.active:after {
-    content: "👈";
+  li.horizontal-nav__active:after {
+    content: " 👈";
   }
 }
