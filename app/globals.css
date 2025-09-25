@@ -105,13 +105,5 @@ hr {
   border-radius: 1.5px;
   border: none;
   margin: 3rem 0;
-  background: linear-gradient(
-    to right,
-    #ff5d7d,
-    #ff764e,
-    #ffc144,
-    #88df8e,
-    #00ccf2,
-    #b278d3
-  );
+  background: var(--rainbow, var(--highlightLight));
 }

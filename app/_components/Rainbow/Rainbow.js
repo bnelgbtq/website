@@ -16,7 +16,7 @@ function doLocalStorage(action, ...args) {
 export default function Rainbow({ isClickable = false }) {
   const [isMounted, setIsMounted] = useState(false);
   const [stripeIndex, setStripeIndex] = useState(
-    doLocalStorage("getItem", "flagIndex") || 0
+    JSON.parse(doLocalStorage("getItem", "flagIndex") || "0")
   );
   useEffect(() => {
     // sync preference to localStorage
@@ -31,6 +31,15 @@ export default function Rainbow({ isClickable = false }) {
   const rainbow = allStripes[stripeIndex];
   const stripes = [...rainbow.stripes, ...Array.from({ length: 10 })];
   const name = `${rainbow.name} flag`;
+
+  useEffect(() => {
+    document.body.style.setProperty(
+      "--rainbow",
+      `linear-gradient(to right, ${rainbow.stripes
+        .map((stripe) => stripe.colour)
+        .join(",")})`
+    );
+  }, [rainbow.stripes]);
   if (!isMounted) {
     return null;
   }
