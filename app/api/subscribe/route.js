@@ -30,8 +30,6 @@ export async function POST(request) {
       status: "pending", // Use 'pending' to send confirmation email
     });
 
-    console.log("mailchipm add responst", response);
-
     return new Response(
       JSON.stringify({
         success: true,
