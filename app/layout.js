@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header items={menuHeader} tagline={site.description} />
+
         <article>{children}</article>
 
         <Footer items={menuFooter}>
@@ -31,7 +32,9 @@ export default function RootLayout({ children }) {
             .
           </p>
         </Footer>
-        <Rainbow />
+        <div className="rainbow-sidebar">
+          <Rainbow isClickable={true} />
+        </div>
       </body>
     </html>
   );

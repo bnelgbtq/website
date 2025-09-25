@@ -88,3 +88,30 @@ h1 {
   padding: 0;
   position: absolute;
 }
+
+.rainbow-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 100vh;
+  @media (min-width: 820px) {
+    width: 64px;
+  }
+}
+
+hr {
+  height: 3px;
+  border-radius: 1.5px;
+  border: none;
+  margin: 3rem 0;
+  background: linear-gradient(
+    to right,
+    #ff5d7d,
+    #ff764e,
+    #ffc144,
+    #88df8e,
+    #00ccf2,
+    #b278d3
+  );
+}

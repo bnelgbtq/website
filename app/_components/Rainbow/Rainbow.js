@@ -13,7 +13,7 @@ function doLocalStorage(action, ...args) {
  * A rainbow flag toggler inspired by/largely cribbed from queerjs.com
  * @see https://github.com/queerjs/website/blob/master/src/components/rainbow/RainbowWithClicker.js
  */
-export default function Rainbow() {
+export default function Rainbow({ isClickable = false }) {
   const [isMounted, setIsMounted] = useState(false);
   const [stripeIndex, setStripeIndex] = useState(
     doLocalStorage("getItem", "flagIndex") || 0
@@ -34,31 +34,36 @@ export default function Rainbow() {
   if (!isMounted) {
     return null;
   }
-  console.log("stripes[0].colour", stripes[0].colour);
+
+  const rainbowDom = (
+    <div className="rainbow__wrapper">
+      {stripes.map(({ colour = "black", size = 0 } = {}, i) => (
+        <div
+          key={i}
+          style={{
+            background: colour,
+            flex: size,
+          }}
+        ></div>
+      ))}
+    </div>
+  );
+
+  if (!isClickable) {
+    return rainbowDom;
+  }
+
   return (
     <button
       className="rainbow"
       title={name}
       aria-live="assertive"
-      style={{
-        "--box-shadow": `0 0 5px ${stripes[0].colour}`,
-      }}
       onClick={() =>
         setStripeIndex(allStripes[stripeIndex + 1] ? stripeIndex + 1 : 0)
       }
     >
       <div className="sr-only">{name} - click to change</div>
-      <div className="rainbow__wrapper">
-        {stripes.map(({ colour = "black", size = 0 } = {}, i) => (
-          <div
-            key={i}
-            style={{
-              background: colour,
-              flex: size,
-            }}
-          ></div>
-        ))}
-      </div>
+      {rainbowDom}
     </button>
   );
 }
