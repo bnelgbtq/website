@@ -72,10 +72,12 @@ export default function EmailSubscribe() {
             status === "submitting" ? "submitting" : "dormant"
           }`}
         >
-          <RainbowSpinner height={100} />
-          <div className="email-subscribe__spinner-text">
-            {status === "submitting" ? "loading..." : ""}
-          </div>
+          {status === "submitting" && (
+            <>
+              <RainbowSpinner height={100} />
+              <div className="email-subscribe__spinner-text">loading...</div>
+            </>
+          )}
         </div>
         {status === "success" && (
           <div className={`email-subscribe__success`}>
