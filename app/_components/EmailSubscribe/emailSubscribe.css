@@ -36,7 +36,7 @@
   height: 0%;
   z-index: 3;
   overflow: hidden;
-  transition: ease-in-out height 0.25s;
+  transition: ease-out height 0.2s;
   &.email-subscribe__spinner--submitting {
     height: 100%;
   }
