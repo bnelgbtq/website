@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import "./eventCard.css";
+import ImageLoader from "../ImageLoader/ImageLoader";
 
 export default function EventCard({ event = {} }) {
   const { name = '', url = '#', venue = '' } = event;
   const image = event.bannerImage?.url || '';
+  const imageId = image.split('/').pop();
+  const responsiveImage = imageId ? `https://cdn.filestackcontent.com/cache=expiry:max/resize=width:1280/output=format:webp,quality:40/compress/${imageId}` : null
   const date = new Date(event?.startDate || Date.now());
 
   return <div className="event-card">
-    <img src={image || null} alt="" width="2500" height="1250" loading="lazy" />
+    <div class="event-card__img"><ImageLoader src={responsiveImage} alt="" width="2500" height="1250" /></div>
     <div className="event-card__content">
 
       <div className="event-card__date">
@@ -42,5 +45,5 @@ export default function EventCard({ event = {} }) {
           </a>}
       </div>
     </div>
-  </div>
+  </div >
 }

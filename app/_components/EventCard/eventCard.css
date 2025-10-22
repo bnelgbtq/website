@@ -29,9 +29,17 @@
         gap: 24px;
     }
 
+    .event-card__img {
+        background: var(--background-secondary);
+        aspect-ratio: auto 2500 / 1250;
+        overflow: hidden;
+    }
+
     img {
         width: 100%;
         height: auto;
+        margin: 0;
+        padding: 0;
     }
 
     h2 {
