@@ -6,7 +6,7 @@
     position: relative;
     border-radius: 20px;
     background-image:
-        linear-gradient(white, #ffffff), var(--rainbow);
+        linear-gradient(var(--background), var(--background)), var(--rainbow);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     transition: transform 0.25s, box-shadow 0.25s;
@@ -24,7 +24,7 @@
     }
 
     .event-card__content {
-        padding: 10px 24px 24px;
+        padding: 16px 24px 24px;
         display: flex;
         gap: 24px;
     }
