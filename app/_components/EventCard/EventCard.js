@@ -8,7 +8,7 @@ export default function EventCard({ event = {} }) {
   const { name = '', url = '#', venue = '' } = event;
   const image = event.bannerImage?.url || '';
   const imageId = image.split('/').pop();
-  const responsiveImage = imageId ? `https://cdn.filestackcontent.com/cache=expiry:max/resize=width:1280/output=format:webp,quality:40/compress/${imageId}` : null
+  const responsiveImage = imageId ? `https://cdn.filestackcontent.com/cache=expiry:max/resize=width:1280/output=format:webp,quality:20/compress/${imageId}` : null
   const date = new Date(event?.startDate || Date.now());
 
   return <div className="event-card">
