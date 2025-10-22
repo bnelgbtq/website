@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.css";
 import HeroItem from "./_components/HeroItem/HeroItem";
 import EmailSubscribe from "./_components/EmailSubscribe/EmailSubscribe";
+import LatestEventCard from "./_components/EventCard/LatestEventCard";
 
 export default function Home() {
   return (
@@ -32,6 +33,9 @@ export default function Home() {
         LGBTQIA+ or an ally, its definitely for you! Why not come along & find
         out? 🌈
       </p>
+
+      <LatestEventCard />
+
       <hr />
       <EmailSubscribe />
     </>

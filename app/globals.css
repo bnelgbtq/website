@@ -1,4 +1,4 @@
-:root {
+body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -15,14 +15,14 @@
   --highlight: #9718ff;
   --highlightLight: #9d7cff;
   --highlightLightest: #c6b3ff;
-  --border-radius: 4px;
+  --border-radius: 1rem;
 
   --text: rgb(43, 22, 56);
   --background: #ffffff;
   --background-secondary: #f1f1f1;
   --text-secondary: var(--text);
-  --border: #c0bfc9;
-  --box-shadow: 0 3px 10px #9718ff88;
+  --border: var(--highlightDarkest);
+  --box-shadow: 0 3px 10px var(--box-shadow-base);
   --background-hover: var(--highlightLightest);
   --background-active: var(--highlightLight);
   --link-colour: var(--highlightDark);
@@ -32,12 +32,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  body {
     --text: rgb(206, 200, 237);
     --background: #1e1126;
     --background-secondary: #23272a;
-    --border: #3c3c48;
-    --box-shadow: 0 3px 10px #040424;
+    --border: var(--highlightDarkest);
     --background-hover: var(--highlightDarkest);
     --background-active: var(--highlightDark);
     --link-colour: #fff;
@@ -48,6 +47,7 @@ body {
   padding: 0 24px 0 48px;
   max-width: 640px;
   margin: 0 auto;
+
   @media (min-width: 720px) {
     padding: 0;
   }
@@ -57,14 +57,17 @@ a:not(.bespoke) {
   color: var(--link-colour);
   border-radius: 4px;
   transition: all 0.2s;
+
   &:hover,
   &:focus {
     color: var(--text);
   }
+
   &:active {
     color: var(--link-colour);
     opacity: 0.8;
   }
+
   &:focus-visible {
     outline: 2px solid var(--highlight);
     outline-offset: 2px;
@@ -95,6 +98,7 @@ h1 {
   top: 0;
   width: 16px;
   height: 100vh;
+
   @media (min-width: 820px) {
     width: 64px;
   }

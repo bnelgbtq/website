@@ -6,7 +6,7 @@ import { allStripes } from "./rainbows";
 function doLocalStorage(action, ...args) {
   try {
     return localStorage[action](...args);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 /**
@@ -38,6 +38,12 @@ export default function Rainbow({ isClickable = false }) {
       `linear-gradient(to right, ${rainbow.stripes
         .map((stripe) => stripe.colour)
         .join(",")})`
+    );
+    document.body.style.setProperty(
+      "--box-shadow-base",
+      rainbow.stripes[rainbow.stripes.length - 1].colour
+        .replace(')', ',.5')
+        .replace('hsl', 'hsla')
     );
   }, [rainbow.stripes]);
   if (!isMounted) {
