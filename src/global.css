@@ -1,0 +1,113 @@
+body {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	font-weight: 300;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	--highlightDarkest: #4e0f85;
+	--highlightDark: #7a13d4;
+	--highlight: #9718ff;
+	--highlightLight: #9d7cff;
+	--highlightLightest: #c6b3ff;
+	--border-radius: 1rem;
+
+	--text: rgb(43, 22, 56);
+	--background: #ffffff;
+	--background-secondary: #f1f1f1;
+	--text-secondary: var(--text);
+	--border: var(--highlightDarkest);
+	--box-shadow: 0 3px 10px var(--box-shadow-base);
+	--background-hover: var(--highlightLightest);
+	--background-active: var(--highlightLight);
+	--link-colour: var(--highlightDark);
+
+	color: var(--text);
+	background-color: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		--text: rgb(206, 200, 237);
+		--background: #1e1126;
+		--background-secondary: #23272a;
+		--border: var(--highlightDarkest);
+		--background-hover: var(--highlightDarkest);
+		--background-active: var(--highlightDark);
+		--link-colour: #fff;
+	}
+}
+
+body {
+	padding: 0 24px 0 48px;
+	max-width: 640px;
+	margin: 0 auto;
+
+	@media (min-width: 720px) {
+		padding: 0;
+	}
+}
+
+a:not(.bespoke) {
+	color: var(--link-colour);
+	border-radius: 4px;
+	transition: all 0.2s;
+
+	&:hover,
+	&:focus {
+		color: var(--text);
+	}
+
+	&:active {
+		color: var(--link-colour);
+		opacity: 0.8;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--highlight);
+		outline-offset: 2px;
+	}
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 2em;
+	text-wrap: balance;
+	line-height: 1.2;
+}
+
+.sr-only {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+}
+
+.rainbow-sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 16px;
+	height: 100vh;
+
+	@media (min-width: 820px) {
+		width: 64px;
+	}
+}
+
+hr {
+	height: 3px;
+	border-radius: 1.5px;
+	border: none;
+	margin: 3rem 0;
+	background: var(--rainbow, var(--highlightLight));
+}
