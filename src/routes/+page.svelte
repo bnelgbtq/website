@@ -23,6 +23,8 @@
 		alt="Four cartoon women sit around a park bench with a laptop and game controllers"
 		width="810"
 		height="557"
+		loading="lazy"
+		decoding="async"
 	/>
 </HeroItem>
 
