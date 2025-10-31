@@ -14,9 +14,9 @@
 <div class="layout" style:--rainbow={$rainbowGradient} style:--box-shadow-base={$rainbowBoxShadow}>
 	<Header items={menuHeader} tagline={site.description} />
 
-	<article>
+	<main>
 		{@render children()}
-	</article>
+	</main>
 
 	<Footer items={menuFooter}>
 		<p>
