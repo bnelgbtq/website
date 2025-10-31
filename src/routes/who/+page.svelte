@@ -1,4 +1,5 @@
 <script>
+	export const csr = false;
 	import HeaderMetadata from '$lib/HeaderMetadata/HeaderMetadata.svelte';
 	import organisers from '../../data/organisers.json';
 </script>
