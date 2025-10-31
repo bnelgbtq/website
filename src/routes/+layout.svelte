@@ -1,5 +1,4 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/Header.svelte';
 	import menuHeader from '../data/menuHeader.json';
 	import menuFooter from '../data/menuFooter.json';
@@ -11,10 +10,6 @@
 
 	let { children } = $props();
 </script>
-
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
 
 <div class="layout" style:--rainbow={$rainbowGradient} style:--box-shadow-base={$rainbowBoxShadow}>
 	<Header items={menuHeader} tagline={site.description} />
