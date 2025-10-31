@@ -1,8 +1,13 @@
 <script>
 	import Rainbow from './Rainbow/Rainbow.svelte';
 
-	/** @type {number} */
-	export let height = 300;
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [height]
+	 */
+
+	/** @type {Props} */
+	let { height = 300 } = $props();
 </script>
 
 <div class="rainbow-spinner" style="--height: {height}px;">

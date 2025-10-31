@@ -3,10 +3,8 @@
 
 	let { event = {} } = $props();
 
-	// Use $derived for reactive date calculation
 	let date = $derived(new Date(event?.startDate || Date.now()));
 
-	// Use $derived.by for responsiveImage calculation
 	let responsiveImage = $derived.by(() => {
 		const image = event.bannerImage?.url || '';
 		const imageId = image.split('/').pop();
@@ -15,7 +13,6 @@
 			: null;
 	});
 
-	// Use $derived for isNextEvent calculation
 	let isNextEvent = $derived(date > new Date());
 </script>
 

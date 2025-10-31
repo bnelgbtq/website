@@ -27,7 +27,7 @@ export async function POST({ request }) {
 			});
 		}
 
-		const response = await mailchimp.lists.addListMember(mailchimpListId, {
+		await mailchimp.lists.addListMember(mailchimpListId, {
 			email_address: email,
 			status: 'pending' // Use 'pending' to send confirmation email
 		});

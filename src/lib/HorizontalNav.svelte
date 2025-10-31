@@ -1,8 +1,13 @@
 <script>
 	import { page } from '$app/state';
-	import { derived } from 'svelte/store';
-	/** @type {Array<{url: string, shortTitle: string}>} */
-	export let items = [];
+
+	/**
+	 * @typedef {Object} Props
+	 * @property {Array<{url: string, shortTitle: string}>} [items]
+	 */
+
+	/** @type {Props} */
+	let { items = [] } = $props();
 </script>
 
 <ol class="horizontal-nav">
