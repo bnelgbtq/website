@@ -15,4 +15,12 @@
 	});
 </script>
 
-<EventCard event={events.events[0]} />
+{#if events?.events?.length}
+	<EventCard event={events.events[0]} />
+{:else}
+	<p>
+		There are no events scheduled. Why not check out <a href="https://luma.com/bnelgbt"
+			>our calendar on Luma</a
+		>.
+	</p>
+{/if}

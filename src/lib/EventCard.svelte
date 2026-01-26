@@ -3,20 +3,26 @@
 
 	let { event = {} } = $props();
 
-	let date = $derived(new Date(event?.startDate || Date.now()));
+	// The API returns featured_items with nested event property
+	let eventData = $derived(event?.event || event);
+
+	let date = $derived(new Date(eventData?.start_at || Date.now()));
 
 	let responsiveImage = $derived.by(() => {
-		const image = event.bannerImage?.url || '';
-		const imageId = image.split('/').pop();
-		return imageId
-			? `https://cdn.filestackcontent.com/cache=expiry:max/resize=width:1280/output=format:webp,quality:20/compress/${imageId}`
-			: null;
+		const coverUrl = eventData?.cover_url || '';
+		if (!coverUrl) return null;
+		// Extract the image ID from the Luma CDN URL
+		const imageId = coverUrl.split('/').pop().replace('.png', '');
+		return `https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,anim=false,background=white,quality=75,width=500,height=500/event-covers/xt/${imageId}.png`;
 	});
 
 	let isNextEvent = $derived(date > new Date());
+
+	let venue = $derived(eventData?.geo_address_info?.address || '');
+	let eventUrl = $derived(eventData?.url ? `https://luma.com/${eventData.url}` : '');
 </script>
 
-<div class="event-card" aria-hidden={!event.name}>
+<div class="event-card" aria-hidden={!eventData.name}>
 	<div class="event-card__img">
 		<ImageLoader src={responsiveImage} alt="" width="2500" height="1250" />
 	</div>
@@ -34,7 +40,7 @@
 				<div class="event-card__badge">
 					{isNextEvent ? 'Next event' : 'Last event'}
 				</div>
-				{event.name}
+				{eventData.name}
 			</h2>
 			<div class="event-card__location">
 				<svg
@@ -51,11 +57,16 @@
 					<path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
 				</svg>
 				<div class="event-card__location-name">
-					{event.venue}
+					{venue}
 				</div>
 			</div>
-			{#if event.url}
-				<a href={event.url} class="bespoke event-card__link">
+			{#if eventUrl}
+				<a
+					href={eventUrl}
+					class="bespoke event-card__link"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<span class="sr-only">Join us</span>
 				</a>
 			{/if}
@@ -98,7 +109,7 @@
 
 		.event-card__img {
 			background: var(--background-secondary);
-			aspect-ratio: auto 2500 / 1250;
+			aspect-ratio: auto 1 / 1;
 			overflow: hidden;
 		}
 
