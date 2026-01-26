@@ -38,7 +38,7 @@
 	definitely for you! Why not come along & find out? 🌈
 </p>
 
-<EventCardLatest />
+<!-- <EventCardLatest /> -->
 
 <hr />
 <EmailSubscribe />
