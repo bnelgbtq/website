@@ -10,10 +10,10 @@ RUN npm prune --production
 # Use another Node.js Alpine image for the final stage
 FROM node:25-alpine
 WORKDIR /app
-RUN ls /app
 COPY --from=builder /app/build build/
 COPY --from=builder /app/node_modules node_modules/
-COPY package.json .
+COPY --from=builder /app/package.json .
+COPY --from=builder /app/.env .
 EXPOSE 3000
 ENV NODE_ENV=production
 CMD [ "node", "build" ]
