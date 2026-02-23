@@ -1,0 +1,19 @@
+services:
+  web:
+    container_name: lgbtqtech.bne.social
+    build: .
+    restart: always
+    volumes:
+      - ./data:/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.bnelgbttechsite.rule=Host(`lgbtqtech.bne.social`)
+      - traefik.http.routers.bnelgbttechsite.entrypoints=websecure
+      - traefik.http.routers.bnelgbttechsite.tls.certresolver=le
+      - traefik.http.services.bnelgbttechsite.loadbalancer.server.port=80
+      - traefik.docker.network=traefik_default
+    networks:
+      - traefik_default
+networks:
+  traefik_default:
+    external: true
